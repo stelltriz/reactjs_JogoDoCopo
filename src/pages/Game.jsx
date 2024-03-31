@@ -4,38 +4,50 @@ import "./Game.css";
 import axios from "axios";
 
 export function Game() {
-  const [resultado, setResultado, setChute] = useState("");
-  
+  const [resultado, setResultado] = useState("");
+
   const embaralharCopos = async () => {
-    const response = await axios.post("http://localhost:8000/embaralhar");
-    setResultado(response.data);
+    try {
+      const response = await axios.post("http://localhost:8000/embaralhar");
+      setResultado(response.data.message);
+    } catch (error) {
+      console.error("Erro ao embaralhar os copos:", error);
+    }
   };
 
-  const chutar = async () => {
-    const response = await axios.post("http://localhost:8000/chute");
-    setChute(response.data);
+  const chutar = async (copoEscolhido) => {
+    try {
+      const response = await axios.post("http://localhost:8000/chute", {
+        copo: copoEscolhido
+      });
+      setResultado(response.data.message);
+    } catch (error) {
+      console.error("Erro ao chutar:", error);
+    }
   };
 
   return (
     <>
-      <div id="game">
-        <div className="cup">
-          <img className="copo" src={copo} onClick={chutar}/>
+      <div className="container">
+        <div className="cup" onClick={() => chutar(0)}>
+          <img className="copo" src={copo} alt="Copo" />
         </div>
-        <div className="cup">
-          <img className="copo" src={copo} onClick={chutar}/>
+        <div className="cup" onClick={() => chutar(1)}>
+          <img className="copo" src={copo} alt="Copo" />
         </div>
-        <div className="cup">
-          <img className="copo" src={copo} onClick={chutar}/>
+        <div className="cup" onClick={() => chutar(2)}>
+          <img className="copo" src={copo} alt="Copo" />
         </div>
         <div className="ball">
-          <img className="bolinha" src={bolinha} onClick={chutar}/>
+          <img className="bolinha" src={bolinha} alt="Bolinha" />
         </div>
       </div>
 
-      <button id="btn-play" onClick={embaralharCopos}>
-        Embaralhar
-      </button>
+      <div className="botao">  
+        <button className="btn-play" onClick={embaralharCopos}>
+            Embaralhar
+        </button>
+      </div>
 
       <div className="resultado">{resultado}</div>
     </>

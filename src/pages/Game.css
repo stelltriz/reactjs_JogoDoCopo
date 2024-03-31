@@ -9,13 +9,13 @@
 }  
 
 
-#game{
+.container{
 	display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#game img{
+.container img{
     cursor: pointer;
     margin-top: 140px;
     height: 340px;
@@ -24,11 +24,11 @@
     transition: transform 0.5s ease;
 }
 
-#game img:hover{
+.container img:hover{
     transform: scale(1.1);
 }
 
-#game .ball{
+.container .ball{
     display: none;
 	background: #000;
 	border-radius: 50%;
@@ -40,10 +40,16 @@
 	left: 0;
 }
 
-#btn-play{
+.botao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.btn-play{
     cursor: pointer;
     display: block;
-	margin: 20px auto;
 	padding: 5px 15px;
     height: 70px;
     width: 200px;
@@ -53,4 +59,11 @@
     border-radius: 30px;
     border-style: none;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.resultado {
+    font-size: 30px;
+    font-family: 'IOS';
+    text-align: center;
+    padding-top: 50px;
 }
