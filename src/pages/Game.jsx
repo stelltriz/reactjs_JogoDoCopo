@@ -10,6 +10,14 @@ export function Game() {
     try {
       const response = await axios.post("http://localhost:8000/embaralhar");
       setResultado(response.data.message);
+  
+      const cups = document.querySelectorAll(".cup");
+      cups.forEach(cup => {
+        cup.classList.add("embaralhar");
+        cup.addEventListener("animationend", () => {
+          cup.classList.remove("embaralhar");
+        }, { once: true });
+      });
     } catch (error) {
       console.error("Erro ao embaralhar os copos:", error);
     }
