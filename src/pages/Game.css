@@ -72,6 +72,7 @@
   animation-name: embaralhar-copo1;
   animation-iteration-count: 1;
   animation-direction: alternate;
+  animation-name: embaralhar-copo2;
 
 }
 
@@ -83,6 +84,8 @@
     transform: translateX(400px);
   }
 }
+
+
 
  /* 
  @keyframes embaralhar {
