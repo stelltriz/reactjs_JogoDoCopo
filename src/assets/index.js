@@ -1,4 +1,4 @@
-import copo from "./copovermelho.jpg"
+import copo from "./copovermelho.png"
 import bolinha from "./bolinha.png"
 
 export {copo,
