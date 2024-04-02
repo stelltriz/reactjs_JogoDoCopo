@@ -50,7 +50,7 @@ export function Game() {
       </div>
 
       <div className="botao">
-        <button className="btn-play" onClick={embaralharCopos}>
+        <button className="btn-play" onClick={() => {embaralharCopos}}>
           Embaralhar
         </button>
       </div>
