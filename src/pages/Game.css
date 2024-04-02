@@ -67,7 +67,7 @@
   padding-top: 50px;
 }
 
-.cup1 {
+.cup1.embaralhar-copo1 {
   animation-duration: 1.8s;
   animation-name: embaralhar-copo1;
   animation-iteration-count: 2;
@@ -83,8 +83,9 @@
   }
 }
 
-.cup2 {
-  animation: embaralhar-copo2 8s;
+.cup2.embaralhar-copo2 {
+  animation-duration: 8s;
+  animation-name: embaralhar-copo2;
   animation-iteration-count: 1;
   animation-direction: alternate;
 }
@@ -107,7 +108,7 @@
   }
 }
 
-.cup3 {
+.cup3.embaralhar-copo3 {
   animation-duration: 1.8s;
   animation-delay: 3s;
   animation-name: embaralhar-copo3;

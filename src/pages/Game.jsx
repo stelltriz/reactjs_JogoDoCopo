@@ -1,8 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
-
 import { copo, bolinha } from "../assets/index";
 import "./Game.css";
 
@@ -14,8 +13,15 @@ export function Game() {
   const embaralharCopos = async () => {
     try {
       const response = await axios.post("http://localhost:8000/embaralhar");
-      setResultado(response.data.message); 
-
+      setResultado(response.data.message);
+      
+      document.querySelectorAll(".cup1, .cup2, .cup3").forEach((cup, index) => {
+        cup.classList.add(`embaralhar-copo${index + 1}`);
+        setTimeout(() => {
+          cup.classList.remove(`embaralhar-copo${index + 1}`);
+        }, 1800 + 8000 + 1800);
+      });
+      
     } catch (error) {
       console.error("Erro ao embaralhar os copos:", error);
     }
