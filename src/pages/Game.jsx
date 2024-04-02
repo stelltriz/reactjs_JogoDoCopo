@@ -15,6 +15,7 @@ export function Game() {
     try {
       const response = await axios.post("http://localhost:8000/embaralhar");
       setResultado(response.data.message); 
+
     } catch (error) {
       console.error("Erro ao embaralhar os copos:", error);
     }
@@ -50,7 +51,7 @@ export function Game() {
       </div>
 
       <div className="botao">
-        <button className="btn-play" onClick={() => {embaralharCopos}}>
+        <button className="btn-play" onClick={embaralharCopos}>
           Embaralhar
         </button>
       </div>
