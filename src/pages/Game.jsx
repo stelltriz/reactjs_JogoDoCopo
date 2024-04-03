@@ -21,10 +21,13 @@ export function Game() {
           cup.classList.remove(`embaralhar-copo${index + 1}`);
         }, 1800 + 8000 + 1800);
       });
+      
     } catch (error) {
       console.error("Erro ao embaralhar os copos:", error);
     }
-  };
+    
+
+    
 
   const chutar = async (copoEscolhido) => {
     try {
@@ -33,15 +36,6 @@ export function Game() {
       });
       setResultado(response.data.message);
       setMostrarConfetti(response.data.confetti);
-
-      // Adiciona classe de animação para o copo clicado
-      document.querySelector(`.cup${copoEscolhido + 1}`).classList.add(`subir-copo${copoEscolhido + 1}`);
-      
-      // Remove a classe de animação após um certo tempo
-      setTimeout(() => {
-        document.querySelector(`.cup${copoEscolhido + 1}`).classList.remove(`subir-copo${copoEscolhido + 1}`);
-      }, 1000);
-
     } catch (error) {
       console.error("Erro ao chutar:", error);
     }
