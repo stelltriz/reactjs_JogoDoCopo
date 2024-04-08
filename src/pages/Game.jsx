@@ -25,9 +25,7 @@ export function Game() {
     } catch (error) {
       console.error("Erro ao embaralhar os copos:", error);
     }
-    
-
-    
+  };
 
   const chutar = async (copoEscolhido) => {
     try {

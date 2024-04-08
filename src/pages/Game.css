@@ -1,4 +1,3 @@
-User
 * {
   padding: 0;
   margin: 0;
@@ -123,51 +122,5 @@ User
   }
   to {
     transform: translateX(-400px);
-  }
-}
-
-
-.cup1.subir-copo1 {
-  animation-name: subir-copo1;
-  animation-duration: 1s;
-  animation-iteration-count: 2;
-}
-
-.cup2.subir-copo2 {
-  animation-name: subir-copo2;
-  animation-duration: 1s;
-  animation-iteration-count: 2;
-}
-
-.cup3.subir-copo3 {
-  animation-name: subir-copo3;
-  animation-duration: 1s;
-  animation-iteration-count: 2;
-}
-
-@keyframes subir-copo1 {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-100px);
-  }
-}
-
-@keyframes subir-copo2 {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-100px);
-  }
-}
-
-@keyframes subir-copo3 {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-100px);
   }
 }
