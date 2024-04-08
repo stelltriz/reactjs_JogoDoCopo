@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
+import Modal from "../components/Modal"; // Importe o componente Modal
 import { copo, bolinha } from "../assets/index";
 import "./Game.css";
 
 export function Game() {
   const [resultado, setResultado] = useState("");
   const [mostrarConfetti, setMostrarConfetti] = useState(false);
+  const [mostrarModal, setMostrarModal] = useState(false); // Estado para controlar a exibição do modal
   const { width, height } = useWindowSize();
 
   const embaralharCopos = async () => {
@@ -34,10 +36,15 @@ export function Game() {
       });
       setResultado(response.data.message);
       setMostrarConfetti(response.data.confetti);
+      setMostrarModal(true); // Exibir o modal ao receber o resultado
     } catch (error) {
       console.error("Erro ao chutar:", error);
     }
   };
+
+  setTimeout(function() {
+    document.querySelector('.bolinha').style.display = 'none';
+  }, 3000); // 3000ms = 3 segundos
 
   return (
     <>
@@ -51,9 +58,10 @@ export function Game() {
         <div className="cup3" onClick={() => chutar(2)}>
           <img className="copo3" src={copo} alt="Copo" />
         </div>
-        <div className="ball">
+      </div>
+
+      <div className="ball">
           <img className="bolinha" src={bolinha} alt="Bolinha" />
-        </div>
       </div>
 
       <div className="botao">
@@ -63,11 +71,15 @@ export function Game() {
       </div>
 
       <div className="resultado">
-        {resultado}
         {mostrarConfetti && (
           <Confetti width={width} height={height} recycle={false} />
         )}
       </div>
+
+      {/* Renderizar o modal se mostrarModal for verdadeiro */}
+      {mostrarModal && (
+        <Modal resultado={resultado} onClose={() => setMostrarModal(false)} />
+      )}
     </>
   );
 }

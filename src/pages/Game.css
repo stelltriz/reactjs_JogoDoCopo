@@ -14,7 +14,9 @@
   align-items: center;
 }
 
-.container img {
+.cup1 .copo1,
+.cup2 .copo2,
+.cup3 .copo3{
   cursor: pointer;
   margin-top: 140px;
   height: 340px;
@@ -23,20 +25,17 @@
   transition: transform 0.5s ease;
 }
 
+
 .container img:hover {
   transform: scale(1.1);
 }
 
-.container .ball {
-  display: none;
-  background: #000;
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  margin-left: 65px;
+.bolinha {
+  z-index: -1;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  height: 130px; /* Definindo a altura da bolinha */
+  margin-top: -165px;
+  margin-left: 485px;
 }
 
 .botao {
@@ -68,23 +67,36 @@
 }
 
 .cup1.embaralhar-copo1 {
-  animation-duration: 1.8s;
+  animation-duration: 5s;
   animation-name: embaralhar-copo1;
-  animation-iteration-count: 2;
-  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-direction: normal;
 }
 
 @keyframes embaralhar-copo1 {
-  from {
+  16% {
+    transform: translateY(0px);
+  }
+  16% {
+    transform: translateY(-200px);
+  }
+  48% {
+    transform: translateY(0px);
+  }
+  64% {
     transform: translateX(0px);
   }
-  to {
+  80% {
     transform: translateX(400px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }
 
 .cup2.embaralhar-copo2 {
-  animation-duration: 8s;
+  animation-delay: 3.2s;
+  animation-duration: 5s;
   animation-name: embaralhar-copo2;
   animation-iteration-count: 1;
   animation-direction: alternate;
@@ -109,8 +121,8 @@
 }
 
 .cup3.embaralhar-copo3 {
-  animation-duration: 1.8s;
-  animation-delay: 3s;
+  animation-duration: 1s;
+  animation-delay: 5s;
   animation-name: embaralhar-copo3;
   animation-iteration-count: 2;
   animation-direction: alternate;
